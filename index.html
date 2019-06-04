@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+	<div class="container">
+		<input type="" class="search">
+		<button class="btn btn-success">Поиск </button>
+		<div class="row">
+			
+		</div>
+	
+	</div>
+<script type="text/javascript">
+	let row = document.querySelector(".row");
+	let search = document.querySelector(".search");
+	let btn = document.querySelector(".btn");
+
+
+
+	let array =[
+		{
+			name:"куртка",
+			price:10000,
+			url:"kurtka.jpg",
+			brand:"h&m",
+			size:"M",
+			gender:"female"
+
+		},
+		
+		{
+			name:"джинсы",
+			price:8000,
+			url:"5.jpg",
+			brand:"levis",
+			size:"L",
+			gender:"male"
+
+		},
+		{
+			name:"джинсы",
+			price:2500,
+			url:"jeanse1.jpg",
+			brand:"zara",
+			size:"M",
+			gender:"female"
+
+		},
+		{
+			name:"джинсы",
+			price:3500,
+			url:"jeanse2.jpg",
+			brand:"zara",
+			size:"L",
+			gender:"female"
+
+		},
+		{
+			name:"футболка",
+			price:1200,
+			url:"tshirt2.jpg",
+			brand:"asics",
+			size:"L",
+			gender:"male"
+
+		},
+		{
+			name:"футболка",
+			price:900,
+			url:"tshirt.jpg",
+			brand:"h&m",
+			size:"XS",
+			gender:"female"
+
+		},
+		{
+			name:"куртка",
+			price:15000,
+			url:"20.jpg",
+			brand:"the north face",
+			size:"L",
+			gender:"male"
+
+		},
+		{
+			name:"шапка",
+			price:900,
+			url:"9.jpg",
+			brand:"nike",
+			size:"nosize",
+			gender:"male"
+
+		},
+		{
+			name:"носки",
+			price:500,
+			url:"socks.jpg",
+			brand:"bonprix",
+			size:"nosize",
+			gender:"male"
+
+		},
+
+	];
+
+
+
+
+	for(let index = 0; index<9; index = index + 1){	
+				let div1 = document.createElement('div')
+				row.appendChild(div1)
+				let elem = document.createElement("img")
+				div1.classList.add('col-3')
+				div1.classList.add('div1')
+				div1.appendChild(elem)
+				elem.classList.add('w-75')
+				elem.src = array[index].url
+				let name = document.createElement('h5')
+				let price = document.createElement('h5')
+				let brand = document.createElement('h5')
+				let	size = document.createElement('h5')
+				let	gender = document.createElement('h5')
+				div1.appendChild(name)
+				div1.appendChild(price)
+				div1.appendChild(brand)
+				div1.appendChild(size)
+				div1.appendChild(gender)
+				name.classList.add('name')
+				price.classList.add('price')
+				brand.classList.add('brand')
+				size.classList.add('size')
+				gender.classList.add('gender')
+				elem.classList.add('img')
+				name.innerHTML = "name: " + array[index].name
+				price.innerHTML = "price: " + array[index].price
+				brand.innerHTML = "brand: " + array[index].brand
+				size.innerHTML = "size: " + array[index].size
+				gender.innerHTML = "gender: " + array[index].gender
+				console.log(div1)
+		}
+
+		let div1 = document.querySelectorAll(".div1")
+		let name = document.querySelectorAll(".name")
+		let size = document.querySelectorAll(".size")
+		let elem = document.querySelectorAll(".img")
+		let gender = document.querySelectorAll(".gender")
+		let brand = document.querySelectorAll(".brand")
+		let price = document.querySelectorAll(".price")
+
+
+	btn.onclick = function(){
+		for(let index = 0; index<9; index = index + 1){
+			if ( array[index].size == search.value || array[index].gender == search.value || array[index].price>=search.value || array[index].brand == search.value || array[index].name == search.value){	
+				div1[index].style.display = "block"
+				elem[index].style.display = "block"
+				name[index].style.display = "block"
+				price[index].style.display = "block"
+				gender[index].style.display = "block"
+				size[index].style.display = "block"
+				brand[index].style.display = "block"
+			} else {
+				div1[index].style.display = "none"
+				elem[index].style.display = "none"
+				name[index].style.display = "none"
+				price[index].style.display = "none"
+				gender[index].style.display = "none"
+				size[index].style.display = "none"
+				brand[index].style.display = "none"
+			}
+		}
+	}
+
+</script>
+</body>
+</html>
